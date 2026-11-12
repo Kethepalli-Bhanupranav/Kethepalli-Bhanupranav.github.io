@@ -1,319 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhanu's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mediaqueries.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08111f">
+<meta name="description" content="Bhanu Pranav Kethepalli — SoC Design Engineer focused on RTL design, custom AXI masters, FPGA integration and embedded C.">
+<title>Bhanu Pranav Kethepalli | SoC Design Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08111f;--panel:#101d30;--text:#eef4ff;--muted:#a0b0c6;--faint:#71839c;--line:#263952;--mint:#73e4c2;--blue:#8ca6ff;--mono:'DM Mono',monospace;--sans:'Manrope',sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:86px}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#1a355030,transparent 34%),var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65}a{color:inherit;text-decoration:none}a:hover{color:var(--mint)}.wrap{width:min(1080px,calc(100% - 44px));margin:auto}
+header{position:sticky;top:0;z-index:5;background:#08111fe9;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{height:70px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;letter-spacing:.15em;font-size:12px}.mark{display:inline-grid;place-items:center;width:34px;height:34px;margin-right:10px;border:1px solid #42617b;border-radius:9px;color:var(--mint);font:13px var(--mono)}nav.links{display:flex;gap:25px;color:var(--muted);font-size:12px}.actions{display:flex;gap:10px;align-items:center}.btn{display:inline-block;border:1px solid var(--line);border-radius:9px;padding:10px 15px;font-size:12px;font-weight:800}.primary{background:var(--mint);border-color:var(--mint);color:#06131d}.toggle,.menu{display:none;background:transparent;color:var(--text);border:1px solid var(--line);padding:8px 10px;border-radius:8px}
+.hero{min-height:590px;display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center;padding:76px 0 90px;position:relative}.eyebrow,.kicker,.index,.meta,.micro,.footer{font:10px var(--mono);letter-spacing:.13em;color:var(--faint);text-transform:uppercase}.eyebrow{color:#b0c1d7}.online{display:inline-block;width:7px;height:7px;background:var(--mint);border-radius:50%;margin-right:9px;box-shadow:0 0 12px var(--mint)}h1{font-size:clamp(44px,6vw,70px);line-height:1.04;letter-spacing:-.065em;margin:23px 0}.accent{background:linear-gradient(100deg,var(--mint),var(--blue));background-clip:text;color:transparent}.lead{font-size:14px;color:var(--muted);max-width:560px;line-height:1.9}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.social{display:flex;gap:22px;font-size:12px;color:#bac7d8;margin-top:27px}.social a{border-bottom:1px solid #40516a;padding-bottom:4px}
+.visual{border:1px solid var(--line);border-radius:18px;padding:22px;background:linear-gradient(145deg,#162a40,#0a1525);position:relative;overflow:hidden;min-height:365px}.visual:before,.art:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#91a8c20c 1px,transparent 1px),linear-gradient(90deg,#91a8c20c 1px,transparent 1px);background-size:27px 27px}.visual-head,.visual-foot{display:flex;justify-content:space-between;position:relative;color:var(--faint);font:9px var(--mono);letter-spacing:.12em}.chip{height:260px;display:grid;grid-template-columns:1fr 90px 1fr;grid-template-rows:1fr 1fr;gap:13px 9px;align-items:center;position:relative}.unit{z-index:1;background:#14263b;border:1px solid #405673;border-radius:9px;padding:15px 8px;text-align:center}.unit b{display:block;font-size:11px;line-height:1.3}.unit small{font:9px var(--mono);color:var(--faint)}.center{grid-column:2;grid-row:1/3;background:linear-gradient(145deg,#1b4650,#12263b);border:1px solid #5d9f91;border-radius:13px;text-align:center;padding:18px 5px;z-index:1}.center strong{display:block;color:var(--mint);font-size:19px}.center small{font:8px var(--mono);color:#a6c7c5}.ps{grid-column:1;grid-row:1}.pl{grid-column:3;grid-row:1}.ddr{grid-column:1;grid-row:2}.fifo{grid-column:3;grid-row:2}.bottomline{position:absolute;bottom:22px;left:0;right:0;display:flex;justify-content:space-between;font:9px var(--mono);color:var(--faint);letter-spacing:.12em}
+.intro{display:grid;grid-template-columns:170px 1fr;gap:35px;padding:55px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.index{color:var(--mint)}h2{font-size:clamp(28px,3vw,39px);letter-spacing:-.05em;line-height:1.15;margin:9px 0 15px}.muted{color:#687c95}.intro p,.note{color:var(--muted);font-size:13px;line-height:1.9;max-width:750px}.tags,.stack,.ptags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.tags span,.stack span,.ptags span{border:1px solid var(--line);border-radius:6px;padding:5px 8px;color:#b1bfd1;font:9px var(--mono);letter-spacing:.06em}
+section.content{padding-top:82px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:25px}.section-head h2{margin-bottom:0}.note{max-width:340px;margin:0}.card{background:linear-gradient(130deg,#111f32,#0b1728);border:1px solid var(--line);border-radius:15px}.experience{display:grid;grid-template-columns:180px 1fr;gap:25px;padding:26px}.date{font:10px var(--mono);color:var(--mint);letter-spacing:.12em}.roleline{display:flex;justify-content:space-between;gap:18px}.roleline h3{font-size:18px;margin:0}.company{color:var(--muted);font-size:12px;margin:3px 0 12px}.current{font:9px var(--mono);color:var(--mint);border:1px solid #73e4c244;border-radius:6px;padding:5px 8px;height:max-content}.bullets{padding-left:18px;color:#bac7d7;font-size:12px;line-height:1.9;margin:12px 0}.bullets li{padding:2px 0}
+.projects{display:grid;gap:16px}.project{display:grid;grid-template-columns:1.1fr .9fr;overflow:hidden}.copy{padding:28px}.meta{display:flex;justify-content:space-between}.project h3{font-size:25px;line-height:1.2;letter-spacing:-.05em;margin:16px 0 7px}.subtitle{color:var(--mint);font-weight:800;font-size:12px;margin:0 0 12px}.copy p:not(.subtitle){font-size:12px;color:var(--muted);line-height:1.9}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0 12px}.facts span{display:block;font:8px var(--mono);letter-spacing:.1em;color:var(--faint)}.facts b{display:block;font-size:10px;margin-top:6px}.art{min-height:315px;padding:25px;background:#0b1728;position:relative;display:flex;align-items:center;justify-content:center;border-left:1px solid var(--line);overflow:hidden}.art>*{z-index:1}.bridge{width:100%;max-width:340px;display:grid;gap:12px}.bridge .unit{padding:12px}.bridge .arrow{text-align:center;color:var(--mint);font:10px var(--mono)}.reverse .copy{order:2}.reverse .art{order:1;border-left:0;border-right:1px solid var(--line)}.channel-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;width:min(100%,250px);aspect-ratio:1.55}.channel-grid i{background:#73e4c225;border:1px solid #73e4c250;border-radius:3px;animation:pulse 4s infinite}.channel-grid i:nth-child(3n){background:#8ca6ff28;border-color:#8ca6ff55}.channel-grid i:nth-child(5n){background:#c1a7ff28;border-color:#c1a7ff55}@keyframes pulse{50%{opacity:.5;transform:scale(.96)}}.channel-art{display:grid;gap:20px;justify-items:center}.big32{font:9px var(--mono);color:var(--faint);letter-spacing:.13em}.big32 b{font:800 32px var(--sans);color:var(--mint);margin:0 8px}
+.support,.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:15px}.support .card,.skill{padding:21px}.support h3,.skill h3{font-size:14px;margin:8px 0}.support p,.skill p{font-size:11px;color:var(--muted);line-height:1.85;margin:0}.skills{grid-template-columns:repeat(4,1fr)}.skill small{font:9px var(--mono);color:var(--mint)}.education{display:flex;justify-content:space-between;align-items:center;padding:24px;gap:20px}.education h3{font-size:17px;margin:0 0 5px}.education p{font-size:12px;color:var(--muted);margin:0}.edu-meta{text-align:right}.edu-meta b{display:block;color:var(--mint);font-size:21px}.edu-meta span{font:9px var(--mono);color:var(--faint)}.contact{padding:33px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(130deg,#183044,#102139)}.contact h2{font-size:clamp(32px,4vw,48px)}.contact p{color:var(--muted);font-size:13px}.contact-meta{display:flex;gap:24px;flex-wrap:wrap;color:var(--faint);font:9px var(--mono);margin-top:22px}.footer{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;padding:34px 0 42px}
+body.light{--bg:#f1f5fa;--text:#12243a;--muted:#566a82;--faint:#72849a;--line:#d1dce8;color-scheme:light;background:#f1f5fa}body.light header{background:#f1f5fae8}body.light .card{background:#fff}body.light .visual,body.light .art{background:#e5edf6}body.light .unit{background:#f5f8fc}body.light .center{background:#e0f0ec}body.light .contact{background:#e7f0f5}
+@media(max-width:850px){nav.links{gap:14px}.hero{gap:24px;grid-template-columns:1fr .9fr}.skills{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.wrap{width:calc(100% - 34px)}nav.links,.nav-right .resume{display:none}.toggle,.menu{display:block}.hero{display:flex;flex-direction:column;align-items:stretch;padding:55px 0 78px;gap:30px}.visual{min-height:340px}.chip{height:245px;grid-template-columns:1fr 78px 1fr;gap:12px 5px}.unit{padding:12px 5px}.unit b{font-size:9px}h1{font-size:clamp(43px,12vw,57px)}.intro{grid-template-columns:1fr;gap:12px;padding:42px 0}.section-head{display:block}.note{margin-top:12px}.experience{grid-template-columns:1fr;padding:20px;gap:13px}.roleline{display:block}.current{display:inline-block;margin-top:8px}.project{grid-template-columns:1fr}.copy{padding:22px 19px}.art{min-height:275px;border-left:0;border-top:1px solid var(--line)}.reverse .copy{order:1}.reverse .art{order:2;border-right:0}.facts{gap:7px}.facts b{font-size:9px}.support,.skills{grid-template-columns:1fr}.education{display:block}.edu-meta{text-align:left;margin-top:15px}.contact{padding:24px 20px}.footer{font-size:8px}}
+</style>
 </head>
 <body>
-    <nav id="desktop-nav">
-        <div class="logo">Bhanu Pranav</div>
-        <div>
-            <ul class="nav-links">
-                <li>
-                    <a href="#about">About</a>
-                </li>
-                <li>
-                    <a href="#experience">Experience</a>
-                </li>
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
-                <li>
-                    <a href="#contact">Contacts</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <nav id="hamburger-nav">
-        <div class="logo">Bhanu Pranav</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="menu-links">
-                <li>
-                    <a href="#about" onclick="toggleMenu()">About</a>
-                </li>
-                <li>
-                    <a href="#experience" onclick="toggleMenu()">Experience</a>
-                </li>
-                <li>
-                    <a href="#projects" onclick="toggleMenu()">Projects</a>
-                </li>
-                <li>
-                    <a href="#contact" onclick="toggleMenu()">Contacts</a>
-                </li>
-            </div>
-        </div>
-    </nav>
-    <section id="profile">
-        <div class="section__pic-container">
-            <img src="./assets/Bhanu_Profile_Pic.png" alt="Bhanu's Profile Picture">
-        </div>
-        <div class="section__text">
-            <p class="section__text__p1">
-                Hello, I'm
-            </p>
-            <h1 class="title">Bhanu Pranav</h1>
-            <p class="section__text__p2">
-                Web Developer
-            </p>
-            <div class="btn-container">
-                 <button class="btn btn-color-2" onclick="window.open('./assets/Resume.pdf')">
-                    Resume
-                 </button>
-                 <button class="btn btn-color-1" onclick="location.href='./#contact'">
-                    Contact Info
-                 </button>
-            </div>
-            <div id="social-container">
-                <img src="./assets/linkedin.png" alt="My linkedin Profile" 
-                class="icon" onclick="location.href='https://www.linkedin.com/in/bhanu-pranav/'">
-                <img src="./assets/github.png" alt="My Github Profile" 
-                class="icon" onclick="location.href='https://github.com/Kethepalli-Bhanupranav'">
-                <img src="./assets/icon.png" alt="My leetcode Profile" 
-                class="icon" onclick="location.href='https://leetcode.com/u/Bhanu_pranav/'">
-            </div>
-        </div>
-    </section>
-    <section id="about">
-        <p class="section__text__p1">
-                Get To Know More
-        </p>
-        <h1 class="title">About Me</h1>
-        <div class="section-container">
-            <div class="section__pic-container">
-                <img src="./assets//about-pic.png" 
-                alt="Profile-Pic" class="about-pic">
-            </div>
-        <div class="about-details-container">
-            <div class="about-containers">
-                <div class="details-container">
-                    <img src="./assets/experience.png" 
-                    alt="Experience Icon" class="icon">
-                    <h3>Experience</h3>
-                    <p>Internship <br> Web Development</p>
-                </div>
-
-                <div class="details-container">
-                    <img src="./assets/education.png" 
-                    alt="Education Icon" class="icon">
-                    <h3>Education</h3>
-                    <p>B.tech ECE <br> NIT Delhi</p>
-                </div>
-             </div>
-             <div class="text-container">
-                <p>I dove headfirst into the world of programming because
-                    I've always been intrigued by technology and its limitless possibilities. 
-                    Whether it's crafting elegant websites or cracking challenging coding problems,
-                    I find my passion in turning ideas into reality through code. 
-                    I'm all about staying in the know when it comes to the latest tech trends</p>
-             </div>
-         </div>
-        </div>
-        <img src="./assets/arrow.png" 
-        alt="Arrow Icon" class="icon arrow"
-        onclick="location.href='./#experience'">
-    </section>
-    <section id="experience">
-        <p class="section__text__p1">My</p>
-        <h1 class="title">Skills</h1>
-        <div class="experience-details-container">
-            <div class="about-containers">
-                <div class="details-container">
-                    <h2 class="experience-sub-title">programming Languages</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>C++</h3>
-                                 <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>C</h3>
-                                <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>JavaScript</h3>
-                                <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>Python</h3>
-                                <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="details-container">
-                    <h2 class="experience-sub-title">Full Stack Development</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>HTML</h3>
-                                <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>CSS</h3>
-                                <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>JavaScript</h3>
-                                <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>React</h3>
-                                <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>Node.js</h3>
-                                <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>Express Js</h3>
-                                <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>SQL</h3>
-                                <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>MongoDB</h3>
-                                <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>Mongoose</h3>
-                                <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="tick" class="icon">
-                            <div>
-                                <h3>Django</h3>
-                                <!-- <p>Experienced</p> -->
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <img src="./assets/arrow.png" alt="arrow icon" class="icon arrow" onclick="location.href='./#projects'">
-    </section>
-
-    <section id="projects">
-        <p class="section__text__p1">My</p>
-        <h1 class="title">Projects</h1>
-        <div class="experience-details-container">
-            <div class="about-containers">
-            <div class="details-container color-container" >
-                <div class="article-container">
-                    <img src="./assets/Blood-Donation-Project.png" alt="project-1" class="project-img">
-                </div>
-                <h2 class="experience-sub-title project-title">Blood Bank Site</h2>
-                <div class="btn-container">
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Kethepalli-Bhanupranav/Blood-Bank-website-Using-fullstack'">GitHub</button>
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://kethepalli-bhanupranav.github.io/Blood-Bank-website-Using-fullstack/'">Link to Website</button>
-                </div>
-            </div>
-            <div class="details-container color-container" >
-                <div class="article-container">
-                    <img src="./assets/Booking-App.png" alt="project-2" class="project-img">
-                </div>
-                <h2 class="experience-sub-title project-title">Booking App</h2>
-                <div class="btn-container">
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Kethepalli-Bhanupranav/Booking-App'">GitHub</button>
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://kethepalli-bhanupranav.github.io/Booking-App/'">Link to Website</button>
-                </div>
-            </div>
-            <div class="details-container color-container" >
-                <div class="article-container">
-                    <img src="./assets/Job-portal.png" alt="project-3" class="project-img">
-                </div>
-                <h2 class="experience-sub-title project-title">Job Portal</h2>
-                <div class="btn-container">
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Kethepalli-Bhanupranav/Job-Portal'">GitHub</button>
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://job-portal-by-bhanu.vercel.app/'">Link to Website</button>
-                </div>
-            </div>
-            <!-- <div class="details-container color-container" >
-                <div class="article-container">
-                    <img src="./assets/project-1.png" alt="project-1" class="project-img">
-                </div>
-                <h2 class="experience-sub-title project-title">Project One</h2>
-                <div class="btn-container">
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com'">GitHub</button>
-                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com'">Link to Website</button>
-                </div>
-            </div> -->
-            </div>
-        </div>
-        <img src="./assets/arrow.png" alt="arrow icon" class="icon arrow" onclick="location.href='./#contact'">
-    </section>
-    <section id="contact">
-        <p class="section__text__p1">Get in Touch</p>
-        <h1 class="title">Contact Me</h1>
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-                <img src="./assets/email.png" alt="email icon" class="icon contact-icon email-icon">
-                <p><a href="mailto:bhanupranav15232@gmail.com">bhanupranav15232@gmail.com</a></p>
-            </div>
-            <div class="contact-info-container">
-                <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon">
-                <p><a href="https://www.linkedin.com/in/bhanu-pranav/">LinkedIn</a></p>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <nav>
-            <div class="nav-links-container">
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-        <p>Copyright &copy;Bhanu-Pranav 2024.All Rights Reserved</p>
-    </footer>
-    <script src="script.js"></script>
-</body>
-</html>
+<header><div class="wrap nav"><a class="brand" href="#top"><span class="mark">BP.</span>BHANU PRANAV</a><nav class="links"><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav><div class="actions"><button class="toggle" id="theme" aria-label="Toggle light theme">☼</button><a class="btn resume" href="assets/resume.pdf" target="_blank" rel="noopener">Resume ↗</a><button class="menu" id="menu" aria-label="Open menu" aria-expanded="false">☰</button></div></div></header>
+<main id="top" class="wrap">
+<section class="hero"><div><p class="eyebrow"><span class="online"></span>SoC DESIGN ENGINEER / HYDERABAD, INDIA</p><h1>Turning complex data paths into <span class="accent">working systems.</span></h1><p class="lead">I'm Bhanu Pranav — an SoC Design Engineer working across RTL design, custom AXI masters, FPGA integration, and bare-metal C for high-speed data-acquisition systems.</p><div class="hero-actions"><a class="btn primary" href="#projects">Explore my work ↓</a><a class="btn" href="#contact">Get in touch ↗</a></div><div class="social"><a href="https://www.linkedin.com/in/bhanu-pranav/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://github.com/Kethepalli-Bhanupranav" target="_blank" rel="noopener">GitHub ↗</a><a href="https://leetcode.com/u/Bhanu_pranav/" target="_blank" rel="noopener">LeetCode ↗</a></div></div>
+<div class="visual"><div class="visual-head"><span>DATA PATH / 01</span><span>RTL · AXI · FPGA</span></div><div class="chip"><div class="unit ps"><b>PROCESSING<br>SYSTEM</b><small>PS</small></div><div class="center"><strong>SoC</strong><b>DATA<br>FLOW</b><small>CUSTOM AXI MASTER</small></div><div class="unit pl"><b>PROGRAMMABLE<br>LOGIC</b><small>PL</small></div><div class="unit ddr"><b>MEMORY</b><small>DDR</small></div><div class="unit fifo"><b>FIFO / CDC</b><small>CLOCK DOMAINS</small></div></div><div class="visual-foot"><span>DESIGN · INTEGRATE · VALIDATE</span><span>01 — 03</span></div></div><div class="bottomline"><span>HARDWARE / SOFTWARE INTERFACES</span><span>SCROLL TO EXPLORE ↓</span></div></section>
+<section class="intro" id="about"><div class="index">01 / ABOUT</div><div><h2>Hardware-minded. <span class="muted">System-focused.</span></h2><p>I work close to the boundary between software and programmable logic — building data-transfer logic, integrating high-speed interfaces, and bringing FPGA-based systems to life. My current work is centred on custom AXI master designs and reliable movement of multi-channel device data.</p><div class="tags"><span>RTL DESIGN</span><span>FPGA SYSTEMS</span><span>BARE-METAL C</span><span>HIGH-SPEED INTERFACES</span></div></div></section>
+<section class="content" id="experience"><div class="section-head"><div class="index">02 / EXPERIENCE<h2>Where I work</h2></div><p class="note">Building and validating FPGA-based SoC data paths.</p></div><article class="card experience"><div class="date">● MAR 2025 — PRESENT</div><div><div class="roleline"><div><h3>SoC Design Engineer</h3><p class="company">Unistring Tech Solutions Pvt. Ltd. · Hyderabad, India</p></div><span class="current">CURRENT ROLE</span></div><ul class="bullets"><li>Develop RTL and integrate SoC data paths on Zynq and Zynq UltraScale+ platforms, including a custom AXI4 master for PS-to-PL and PL-to-PS transfers.</li><li>Implement AXI read/write channel handling, burst control, address generation, and transaction sequencing; integrate asynchronous FIFO-based clock-domain crossing for independent clock domains.</li><li>Contribute to a major 32-channel transpose data-transfer project for a high-speed device.</li><li>Integrate and validate AD9081, AD9082, AD9371, ADRV9009, and AD9361 RF transceiver systems; bring up JESD204B links, clocking, SPI control, and FPGA data capture.</li><li>Develop bare-metal C driver APIs for device initialization, SPI register access, JESD link setup, clock/reset control, status monitoring, and hardware diagnostics.</li></ul><div class="stack"><span>VERILOG / VHDL</span><span>AXI4</span><span>EMBEDDED C</span><span>JESD204B</span><span>VIVADO</span></div></div></article></section>
+<section class="content" id="projects"><div class="section-head"><div class="index">03 / SELECTED PROJECTS<h2>Engineering in focus</h2></div><p class="note">Two core data-path projects, plus supporting SoC integration work.</p></div><div class="projects">
+<article class="card project"><div class="copy"><div class="meta"><span>PROJECT 01</span><span>RTL / FPGA</span></div><h3>Custom AXI Master</h3><p class="subtitle">Bidirectional PS ↔ PL data transfer</p><p>Designed a custom AXI master for bidirectional data movement between the Processing System and Programmable Logic. The project covers AXI read/write transactions, burst control, and transfer sequencing, with asynchronous FIFO-based clock-domain crossing.</p><div class="facts"><div><span>DATA PATH</span><b>PS ↔ PL</b></div><div><span>INTERFACE</span><b>AXI4</b></div><div><span>PLATFORMS</span><b>Zynq / Zynq UltraScale+</b></div></div><div class="ptags"><span>AXI MASTER</span><span>BURST CONTROL</span><span>FIFO</span><span>CDC</span></div></div><div class="art"><div class="bridge"><div class="unit"><b>PROCESSING SYSTEM</b><small>PS</small></div><div class="arrow">↕ AXI4</div><div class="unit"><b>CUSTOM AXI MASTER</b><small>READ / WRITE</small></div><div class="arrow">↕ FIFO / CDC</div><div class="unit"><b>PROGRAMMABLE LOGIC</b><small>PL</small></div></div></div></article>
+<article class="card project reverse"><div class="copy"><div class="meta"><span>PROJECT 02</span><span>MAJOR FPGA PROJECT</span></div><h3>32-Channel Transpose Data Transfer</h3><p class="subtitle">Large-scale multi-channel data-transfer project</p><p>A major FPGA-based data-transfer project involving a 32-channel device. The work is part of a high-speed data-acquisition system and focuses on transpose-oriented data movement.</p><div class="facts"><div><span>CHANNELS</span><b>32</b></div><div><span>PROJECT SCOPE</span><b>Major system-level work</b></div><div><span>DOMAIN</span><b>FPGA data transfer</b></div></div><div class="ptags"><span>FPGA</span><span>32-CHANNEL DEVICE</span><span>DATA TRANSFER</span></div></div><div class="art"><div class="channel-art"><div class="channel-grid" id="channelGrid" aria-hidden="true"></div><div class="big32">PROJECT SCALE <b>32</b> CHANNELS</div></div></div></article>
+</div><div class="support"><article class="card"><div class="index">A / SUPPORTING WORK</div><h3>RF Transceiver Bring-Up</h3><p>AD9081 / AD9082 / AD9371 / ADRV9009 / AD9361 integration, JESD204B link setup, clocking, SPI control, and FPGA data capture.</p><div class="ptags"><span>JESD204B</span><span>SPI</span></div></article><article class="card"><div class="index">B / SUPPORTING WORK</div><h3>Multi-Device Octal SPI Control</h3><p>Controller logic and bare-metal APIs for FPGA-to-device communication and multi-device configuration.</p><div class="ptags"><span>OCTAL SPI</span><span>BARE-METAL C</span></div></article><article class="card"><div class="index">C / SUPPORTING WORK</div><h3>High-Speed Ethernet Integration</h3><p>Integration and debug of 10G / 25G Ethernet IP data paths, RTL simulation, timing checks, and FPGA validation.</p><div class="ptags"><span>10G / 25G</span><span>RTL VALIDATION</span></div></article></div></section>
+<section class="content" id="skills"><div class="section-head"><div class="index">04 / TECHNICAL SKILLS<h2>Tools of the trade</h2></div><p class="note">A practical toolkit across logic design, embedded software, and system validation.</p></div><div class="skills"><article class="card skill"><small>01</small><h3>RTL & Digital Design</h3><p>Verilog · VHDL · RTL design · Simulation · FIFO design · FSMs · CDC</p></article><article class="card skill"><small>02</small><h3>SoC & Interfaces</h3><p>AXI4 · AXI master · PS–PL integration · SPI · Octal SPI · JESD204B · Ethernet</p></article><article class="card skill"><small>03</small><h3>Embedded Software</h3><p>Embedded C · Bare-metal drivers · Register-level APIs · Device initialization · Debugging</p></article><article class="card skill"><small>04</small><h3>Tools & Platforms</h3><p>Xilinx Vivado · ModelSim · Questa · Zynq · Zynq UltraScale+ · FPGA implementation</p></article></div></section>
+<section class="content"><div class="section-head"><div class="index">05 / EDUCATION<h2>Academic foundation</h2></div></div><article class="card education"><div><h3>National Institute of Technology Delhi</h3><p>B.Tech — Electronics and Communication Engineering</p></div><div class="edu-meta"><b>7.63 / 10</b><span>2021 — 2025</span></div></article></section>
+<section class="content" id="contact"><div class="contact"><div class="index">06 / CONTACT</div><h2>Let's build something <span class="accent">that works.</span></h2><p>I'm happy to connect about SoC design, FPGA development, embedded systems, and engineering opportunities.</p><div class="hero-actions"><a class="btn primary" href="mailto:bhanupranav15232@gmail.com">Email me ↗</a><a class="btn" href="https://www.linkedin.com/in/bhanu-pranav/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a></div><div class="contact-meta"><span>BHANUPRANAV15232@GMAIL.COM</span><span>HYDERABAD, INDIA</span></div></div></section>
+</main><footer class="wrap footer"><span>BP. — DESIGNED AND BUILT BY BHANU PRANAV</span><span>© <span id="year"></span> · ALL RIGHTS RESERVED</span></footer>
+<script>
+(()=>{const menu=document.getElementById('menu'),theme=document.getElementById('theme'),grid=document.getElementById('channelGrid');menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));document.body.classList.toggle('nav-open',open);menu.textContent=open?'✕':'☰';let old=document.getElementById('mobileNav');if(old)old.remove();if(open){const n=document.createElement('nav');n.id='mobileNav';n.className='wrap mobile-links';n.innerHTML='<a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>';document.querySelector('header').appendChild(n);n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.remove();menu.textContent='☰';menu.setAttribute('aria-expanded','false')}));}});theme.addEventListener('click',()=>document.body.classList.toggle('light'));for(let i=0;i<32;i++){const cell=document.createElement('i');cell.style.animationDelay=(i%8)*.12+'s';grid.appendChild(cell)}document.getElementById('year').textContent=new Date().getFullYear()})();
+</script>
+</body></html>
